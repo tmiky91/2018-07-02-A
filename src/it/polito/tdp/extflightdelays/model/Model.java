@@ -40,6 +40,10 @@ public class Model {
 			DefaultWeightedEdge edge = grafo.getEdge(r.getA1(), r.getA2());
 			if(edge==null) {
 				Graphs.addEdgeWithVertices(grafo, r.getA1(), r.getA2(), r.getPeso());
+			}else {
+				double peso = grafo.getEdgeWeight(edge);
+				double newPeso = (peso+r.getPeso())/2;
+				grafo.setEdgeWeight(edge, newPeso);
 			}
 		}
 		risultato="Grafo Creato! Vertici: "+grafo.vertexSet().size()+" Archi: "+grafo.edgeSet().size()+"\n";
